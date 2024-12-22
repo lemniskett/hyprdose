@@ -1,0 +1,47 @@
+* {
+    font-family: "ZedMono Nerd Font"
+}
+
+window {
+    background-color: rgba(27, 20, 46, 0.8);
+    color: #f6f6f9;
+}
+
+/* search entry */
+entry {
+    margin: 32px 0;
+    background-color: rgba(27, 20, 46, 1);
+    border-radius: 8px;
+    border: 2px solid #52e6ff;
+}
+
+button, image {
+    background: none;
+    border: none
+}
+
+button:hover, button:focus {
+    background-color: #d164f3;
+}
+
+/* in case you wanted to give category buttons a different look */
+#category-button {
+    margin: 0 10px 0 10px
+}
+
+#pinned-box {
+    padding-bottom: 5px;
+    border-bottom: 1px dotted gray
+}
+
+#files-box {
+    padding: 5px;
+    border: 1px dotted gray;
+    border-radius: 15px
+}
+
+/* math operation result label */
+#math-label {
+    font-weight: bold;
+    font-size: 16px
+}

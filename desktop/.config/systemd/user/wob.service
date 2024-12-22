@@ -1,0 +1,11 @@
+[Unit]
+Description=wob
+
+[Service]
+Type=simple
+ExecStart=/bin/sh -c "rm -f ~/.wobsock; touch ~/.wobsock; tail -f ~/.wobsock | wob"
+Restart=on-failure
+RestartSec=1
+
+[Install]
+WantedBy=default.target

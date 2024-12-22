@@ -1,0 +1,63 @@
+{
+    "layer": "top",
+    "position": "left",
+    "width": 56,
+    "modules-left": ["custom/launcher", "hyprland/workspaces", "custom/addworkspace"],
+    "modules-right": ["custom/killactive", "custom/screenshot", "custom/terminal", "custom/osk", "clock", "network", "battery"],
+    "custom/addworkspace": {
+        "on-click": "angelctl new_workspace",
+        "format": "",
+        "tooltip": false
+    },
+    "clock": {
+        "format": "{:%H\n<span>%M</span>}",
+        "on-click": "foot calcurse",
+        "tooltip": false
+    },
+    "network": {
+        "format": "󰤭",
+        "format-wifi": "{icon}",
+        "format-ethernet": "",
+        "format-disconnected": "󰤭",
+        "tooltip": false,
+        "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
+	    "on-click": "foot nmtui"
+    },
+    "battery": {
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "format": "{icon}",
+        "format-charging": "{icon}󱐋",
+        "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip": false,
+	    "on-click": "foot htop"
+    },
+    "custom/launcher": {
+        "on-click": "angelctl launcher",
+        "format": "󰐂",
+        "tooltip": false
+    },
+    "custom/osk": {
+        "on-click": "angelctl keyboard toggle",
+        "format": "󰌌",
+        "tooltip": false
+    },
+    "custom/screenshot": {
+        "on-click": "angelctl screenshot full",
+        "on-click-right": "angelctl screenshot partial",
+        "format": "",
+        "tooltip": false
+    },
+    "custom/killactive": {
+        "on-click": "hyprctl dispatch killactive",
+        "format": "",
+        "tooltip": false
+    },
+    "custom/terminal": {
+        "on-click": "hyprctl dispatch exec foot",
+        "format": "",
+        "tooltip": false
+    }
+}

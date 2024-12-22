@@ -1,0 +1,145 @@
+#!/usr/bin/env bash
+
+yap() {
+    echo "$@"
+}
+
+# shellcheck disable=SC1091
+source "$HOME/.config/hyprdose/angelrc" || (yap "WHERE IS MY ANGELRC!!!"; exit 1)
+
+audio() {
+    case "$1" in
+        "up")
+        (wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo 0 > "$HYPRDOSE_WOBSOCK_PATH") || \
+            (wpctl set-volume @DEFAULT_AUDIO_SINK@ "$HYPRDOSE_AUDIO_STEP"%+ && wpctl get-volume @DEFAULT_AUDIO_SINK@ | \
+            sed 's/[^0-9]//g' > "$HYPRDOSE_WOBSOCK_PATH")
+        ;;
+        "down")
+        (wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo 0 > ~/.wobsock) || \
+            (wpctl set-volume @DEFAULT_AUDIO_SINK@ "$HYPRDOSE_AUDIO_STEP"%- && wpctl get-volume @DEFAULT_AUDIO_SINK@ | \
+            sed 's/[^0-9]//g' > "$HYPRDOSE_WOBSOCK_PATH")
+        ;;
+        "togglemute")
+        # shellcheck disable=SC2015
+        wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && \
+            (wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo 0 > "$HYPRDOSE_WOBSOCK_PATH") || \
+            wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' > "$HYPRDOSE_WOBSOCK_PATH"
+        ;;
+        *)
+        yap "audio: up|down|togglemute"
+        exit 1
+        ;;
+    esac
+}
+
+brightness() {
+    case "$1" in
+        "up")
+        brightnessctl set "$HYPRDOSE_BRIGHTNESS_STEP"%+ | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > ~/.wobsock
+        ;;
+        "down")
+        brightnessctl set "$HYPRDOSE_BRIGHTNESS_STEP"%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > ~/.wobsock
+        ;;
+        *)
+        yap "brightness: up|down"
+        exit 1
+        ;;
+    esac
+}
+
+screenshot() {
+    case "$1" in
+        full)
+        screenshot_location="$HYPRDOSE_SCREENSHOT_DIR/$(date +'%y%m%d-%H%M%S-Grim.png')"
+        
+        grim "$screenshot_location"
+        wl-copy < "$screenshot_location"
+        notify-send "Screenshot" "$screenshot_location"
+        ;;
+        partial)
+        screenshot_location="$HYPRDOSE_SCREENSHOT_DIR/$(date +'%y%m%d-%H%M%S-Grim.png')"
+
+        slurp -b 1b142eaa -w 0 | grim -g - - >> "$screenshot_location"
+        wl-copy < "$screenshot_location"
+        notify-send "Partial Screenshot" "$screenshot_location"
+        ;;
+        *)
+        yap "screenshot: full|partial"
+        exit 1
+        ;;
+    esac
+}
+
+new_workspace() {
+    last_workspace="0"
+    
+    for id in $(hyprctl workspaces -j | jq .[].id); do
+        if [[ $id -ge $last_workspace ]]; then
+            last_workspace=$id
+        fi
+    done
+    
+    workspace_to_create=$((last_workspace + 1))
+    
+    if [[ $workspace_to_create -gt $HYPRDOSE_MAX_WORKSPACE ]]; then
+        notify-send "Error" "Can't have workspace more than $HYPRDOSE_MAX_WORKSPACE."
+        exit 1
+    fi
+    
+    hyprctl dispatch workspace $workspace_to_create
+}
+
+launcher() {
+    if ! pidof nwg-drawer; then
+        systemctl --user start nwg-drawer
+        sleep 0.1	
+    fi
+    pkill -USR1 nwg-drawer
+}
+
+keyboard() {
+    wvkbd_pids="$(pidof wvkbd-mobintl)"
+
+    if [[ "$wvkbd_pids" == "" ]]; then
+        wvkbd-mobintl -L "$HYPRDOSE_KEYBOARD_HEIGHT" \
+            -l simple,special  --landscape-layers simple,special \
+            --bg 1b142ec0 --fg 1b142ec0 --fg-sp 1b142ec0 \
+            --press 52e6ff --press-sp d164f3 \
+            --text f6f6f9 --text-sp f6f6f9 \
+            -R 8 --fn "ZedMono Nerd Font 20" &
+    else
+        # shellcheck disable=SC2086
+        kill $wvkbd_pids
+    fi
+}
+
+workspace() {
+    current_workspace="$(hyprctl activeworkspace -j | jq .id)"
+
+    case "$1" in
+        up)
+        if [[ "$current_workspace" -lt "$HYPRDOSE_MAX_WORKSPACE" ]]; then
+            hyprctl dispatch workspace $((current_workspace + 1))
+        fi
+        ;;
+        down)
+        if [[ "$current_workspace" -gt 1 ]]; then
+            hyprctl dispatch workspace $((current_workspace - 1))
+        fi
+        ;;
+        *)
+        yap "workspace: up|down"
+        ;;
+    esac
+}
+
+case $1 in
+    audio|brightness|screenshot|launcher|new_workspace|keyboard|workspace)
+    # shellcheck disable=SC2068
+    "$1" ${@:2}
+    ;;
+    *)
+    yap "$0: audio|brightness|launcher|screenshot|new_workspace|keyboard|workspace"
+    exit 1
+    ;;
+esac
