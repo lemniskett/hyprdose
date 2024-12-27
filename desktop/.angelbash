@@ -1,0 +1,27 @@
+angelfetch() {
+    roll=$((1 + RANDOM % 2))
+    case "$roll" in
+        1)
+        /usr/bin/fastfetch --sixel ~/.config/hyprdose/fetch-ame.png
+	;;
+        2)
+        /usr/bin/fastfetch --sixel ~/.config/hyprdose/fetch-kangel.png
+        ;;
+        *)
+        /usr/bin/fastfetch
+        ;;
+    esac
+}
+
+if [[ "$(tty)" == "/dev/tty5" ]]; then
+    Hyprland &> ~/.hyprland.log
+    exec start-steam
+fi
+
+alias de="distrobox enter"
+alias ssh="env TERM=xterm-256color ssh "
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+
+eval "$(starship init bash)"
+angelfetch

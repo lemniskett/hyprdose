@@ -2,8 +2,13 @@
     "layer": "top",
     "position": "left",
     "width": 56,
+    "modules-center": ["tray"],
     "modules-left": ["custom/launcher", "hyprland/workspaces", "custom/addworkspace"],
     "modules-right": ["custom/killactive", "custom/screenshot", "custom/terminal", "custom/osk", "clock", "network", "battery"],
+    "tray": {
+        "icon-size": 22,
+        "spacing": 10
+    },
     "custom/addworkspace": {
         "on-click": "angelctl new_workspace",
         "format": "",

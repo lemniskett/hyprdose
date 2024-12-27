@@ -11,14 +11,18 @@ w() {
 }
 
 s() {
-    systemctl --user start $1
+    $@ &
+}
+
+svc() {
+    ~/.config/hyprdose/svc/$1.sh &
 }
 
 s hyprpaper
-s swayidle
 s mako
-s wob
-s nwg-drawer
+s /usr/libexec/hyprpolkitagent
+svc swayidle
+svc wob
 
 w button-layout "$HYPRDOSE_WM_BUTTON_LAYOUT"
 i cursor-theme "$HYPRDOSE_CURSOR_THEME"
@@ -31,4 +35,5 @@ i monospace-font-name "$HYPRDOSE_MONOSPACE_FONT_NAME"
 i color-scheme "$HYPRDOSE_COLOR_SCHEME"
 
 sleep 2
-s waybar@left
+s waybar --config ./.config/waybar/config-left.json --style ./.config/waybar/style-left.css
+# s steam

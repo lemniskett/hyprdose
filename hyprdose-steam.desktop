@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Hyprdose
-Exec=/usr/bin/sudo /home/deck/.config/hyprdose/init.sh
+Exec=/usr/bin/start-hyprland
 Comment=
 Terminal=false
 Icon=gnome-panel-launcher
