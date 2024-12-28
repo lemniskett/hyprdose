@@ -14,8 +14,9 @@ angelfetch() {
 }
 
 if [[ "$(tty)" == "/dev/tty5" ]]; then
-    Hyprland &> ~/.hyprland.log
-    exec start-steam
+    while true; do
+        Hyprland &> ~/.hyprland.log
+    done
 fi
 
 alias de="distrobox enter"
