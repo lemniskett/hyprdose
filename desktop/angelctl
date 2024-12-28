@@ -131,13 +131,33 @@ workspace() {
     esac
 }
 
+movetoworkspace() {
+    current_workspace="$(hyprctl activeworkspace -j | jq .id)"
+
+    case "$1" in
+        up)
+        if [[ "$current_workspace" -lt "$HYPRDOSE_MAX_WORKSPACE" ]]; then
+            hyprctl dispatch movetoworkspace $((current_workspace + 1))
+        fi
+        ;;
+        down)
+        if [[ "$current_workspace" -gt 1 ]]; then
+            hyprctl dispatch movetoworkspace $((current_workspace - 1))
+        fi
+        ;;
+        *)
+        yap "movetoworkspace: up|down"
+        ;;
+    esac
+}
+
 case $1 in
-    audio|brightness|screenshot|launcher|new_workspace|keyboard|workspace)
+    audio|brightness|screenshot|launcher|new_workspace|keyboard|workspace|movetoworkspace)
     # shellcheck disable=SC2068
     "$1" ${@:2}
     ;;
     *)
-    yap "$0: audio|brightness|launcher|screenshot|new_workspace|keyboard|workspace"
+    yap "$0: audio|brightness|launcher|screenshot|new_workspace|keyboard|workspace|movetoworkspace"
     exit 1
     ;;
 esac
