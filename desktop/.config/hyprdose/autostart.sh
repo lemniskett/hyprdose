@@ -10,19 +10,9 @@ w() {
     gsettings set org.gnome.desktop.wm.preferences "$1" "$2"
 }
 
-s() {
-    $@ &
-}
-
-svc() {
-    ~/.config/hyprdose/svc/$1.sh &
-}
-
-s hyprpaper
-s mako
-s /usr/libexec/hyprpolkitagent
-svc swayidle
-svc wob
+hyprpaper &
+mako &
+/usr/libexec/hyprpolkitagent &
 
 w button-layout "$HYPRDOSE_WM_BUTTON_LAYOUT"
 i cursor-theme "$HYPRDOSE_CURSOR_THEME"
@@ -35,5 +25,6 @@ i monospace-font-name "$HYPRDOSE_MONOSPACE_FONT_NAME"
 i color-scheme "$HYPRDOSE_COLOR_SCHEME"
 
 sleep 2
-s waybar --config ./.config/waybar/config-left.json --style ./.config/waybar/style-left.css
-# s steam
+waybar --config ./.config/waybar/config-left.json --style ./.config/waybar/style-left.css &
+~/.config/hyprdose/svc/swayidle.sh &
+~/.config/hyprdose/svc/wob.sh &

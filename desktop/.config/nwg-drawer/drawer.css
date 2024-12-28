@@ -9,7 +9,7 @@ window {
 
 /* search entry */
 entry {
-    margin: 32px 0;
+    margin: 8px 0;
     background-color: rgba(27, 20, 46, 1);
     border-radius: 8px;
     border: 2px solid #52e6ff;
@@ -45,4 +45,3 @@ button:hover, button:focus {
     font-weight: bold;
     font-size: 16px
 }
-
