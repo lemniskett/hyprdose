@@ -18,6 +18,12 @@ stow -t ~ .
 
 See [`build.sh`](https://github.com/lemniskett/bazzite-deck-hyprdose/blob/master/build.sh)
 
+## Steam Deck Button Configuration
+
+It's recommended to use my layout in the community section of "Desktop Layout"
+
+![button-layout](screenshots/hyprdose-button-layout.png)
+
 ## Steam Library Capsules
 
 Use SteamGridDB to change Banner, Icon, and Capsules using images in this repository.

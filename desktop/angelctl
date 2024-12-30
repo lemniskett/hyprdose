@@ -101,7 +101,7 @@ keyboard() {
     if [[ "$wvkbd_pids" == "" ]]; then
         wvkbd-mobintl -L "$HYPRDOSE_KEYBOARD_HEIGHT" \
             -l simple,special  --landscape-layers simple,special \
-            -R 8 --bg 1b142ec0 --fg 1b142ec0 --fg-sp 1b142ec0 \
+            -R 12 --bg 1b142ec0 --fg 1b142ec0 --fg-sp 1b142ec0 \
             --press 52e6ff --press-sp d164f3 \
             --text f6f6f9 --text-sp f6f6f9 \
             --fn "ZedMono Nerd Font 20" &

@@ -11,12 +11,12 @@ window#waybar {
 
 #workspaces {
     margin: 2px 4px 2px 4px;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
 #workspaces button {
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     padding: 11px 1px 10px 1px;
     color: #f6f6f9;
 }
@@ -38,7 +38,7 @@ window#waybar {
 
 #custom-osk, #custom-launcher {
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     padding: 8px 9px 8px 2px;
     margin: 2px 4px 2px 4px;
     font-size: 24px;
@@ -54,7 +54,7 @@ window#waybar {
 
 #custom-osk, #custom-addworkspace, #custom-killactive, #custom-terminal, #custom-screenshot {
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     margin: 2px 4px;
     font-size: 24px;
     color: #f6f6f9;
@@ -89,7 +89,7 @@ window#waybar {
     color: #1b142e;
     margin: 0 4px 4px 4px;
     background-color: #52e6ff;
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 8px 8px;
     font-size: 24px;
     padding: 0 0 8px 0;
 }
@@ -106,5 +106,5 @@ window#waybar {
     color: #1b142e;
     background-color: #52e6ff;
     margin: 2px 4px 0 4px;
-    border-radius: 4px 4px 0 0;
+    border-radius: 8px 8px 0 0;
 }
