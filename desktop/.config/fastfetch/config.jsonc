@@ -10,58 +10,61 @@
       "left": 1
     }
   },
+  "display": {
+    "separator": "  "
+  },
   "modules": [
         {
             "type": "title",
             "key": " ",
             "color": {
                 "user": "light_blue",
-                "at": "white",
+                "at": "black",
                 "host": "magenta"
             }
 	},
 	"break",
         {
             "type": "os",
-            "key": " 󰣛",
+            "key": "󰣛",
             "format": "{pretty-name}"
         },
         {
             "type": "kernel",
-            "key": " ",
+            "key": "",
             "format": "{1} {2}"
         },
         {
             "type": "host",
-            "key": " 󰾰"
+            "key": "󰾰"
         },
         {
             "type": "cpu",
-            "key": " 󰻠"
+            "key": "󰻠"
         },
         {
             "type": "gpu",
-            "key": " 󰍛"
+            "key": "󰍛"
         },
         {
             "type": "memory",
-            "key": " "
+            "key": ""
         },
         {
             "type": "de",
-            "key": " 󰕮"
+            "key": "󰕮"
         },
         {
             "type": "wm",
-            "key": " "
+            "key": ""
         },
         {
             "type": "shell",
-            "key": " "
+            "key": ""
         },
         {
             "type": "packages",
-            "key": " 󰏖"
+            "key": "󰏖"
         },
         "break",
         {

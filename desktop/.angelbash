@@ -13,6 +13,8 @@ angelfetch() {
     esac
 }
 
+source /etc/os-release
+
 if [[ "$(tty)" == "/dev/tty5" ]]; then
     while true; do
         Hyprland &> ~/.hyprland.log
@@ -25,4 +27,6 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
 eval "$(starship init bash)"
-angelfetch
+if [[ "$ID" == "bazzite" ]]; then
+    angelfetch
+fi

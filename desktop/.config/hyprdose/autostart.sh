@@ -11,7 +11,7 @@ w() {
 }
 
 hyprpaper &
-mako &
+swaync &
 /usr/libexec/hyprpolkitagent &
 
 w button-layout "$HYPRDOSE_WM_BUTTON_LAYOUT"
@@ -26,5 +26,6 @@ i color-scheme "$HYPRDOSE_COLOR_SCHEME"
 
 sleep 2
 waybar --config ./.config/waybar/config-left.json --style ./.config/waybar/style-left.css &
+waybar --config ./.config/waybar/config-right.json --style ./.config/waybar/style-right.css &
 ~/.config/hyprdose/svc/swayidle.sh &
 ~/.config/hyprdose/svc/wob.sh &

@@ -1,0 +1,105 @@
+* {
+    font-family: "ZedMono Nerd Font";
+    font-weight: 700;
+    font-size: 20px;
+}
+
+window#waybar {
+    color: #4d23cf;
+    background-color: #f7e1fb;
+    border-left: 3px solid #ffffff;
+}
+
+#custom-osk, #custom-addworkspace, #custom-killactive, #custom-terminal, #custom-screenshot, #custom-notification-center {
+    border: none;
+    margin: 2px 4px 2px 7px;
+    font-size: 24px;
+    color: #4d23cf;
+}
+
+#custom-osk {
+    padding: 8px 6px 8px 0px;
+}
+
+#custom-killactive {
+    font-size: 28px;
+    border: none;
+    background-color: #f7e1fb;
+    padding: 4px 2px 4px 0px;
+    margin: 4px 4px 2px 7px;
+    border-bottom: 3px solid #815cdd;
+    border-right: 3px solid #815cdd;
+    border-top: 3px solid #ffffff;
+    border-left: 3px solid #ffffff;
+}
+
+#custom-terminal {
+    padding: 8px 4px 8px 0px;
+}
+
+#custom-screenshot {
+    padding: 8px 8px 8px 0px;
+}
+
+#custom-notification-center {
+    padding: 8px 4px 8px 0px;
+}
+
+#battery {
+    color: #4d23cf;
+    margin: 0px 4px 4px 7px;
+    background-color: #f7e1fb;
+    font-size: 24px;
+    padding: 0 0 8px 0;
+    border-bottom: 3px solid #815cdd;
+    border-right: 3px solid #815cdd;
+    border-left: 3px solid #ffffff;
+}
+
+#network {
+    padding: 2px 8px 2px 0;
+    color: #4d23cf;
+    background-color: #f7e1fb;
+    margin: 0 4px 0 7px;
+    border-right: 3px solid #815cdd;
+    border-left: 3px solid #ffffff;
+}
+
+#clock {
+    padding: 8px 0 8px 0;
+    color: #4d23cf;
+    background-color: #f7e1fb;
+    margin: 2px 4px 0 7px;
+    border-right: 3px solid #815cdd;
+    border-top: 3px solid #ffffff;
+    border-left: 3px solid #ffffff;
+}
+
+#custom-separator {
+    font-size: 0;
+    padding: 0.5px;
+    background-color: #f7e1fb;
+    margin: 4px 8px 4px 11px;
+    border-bottom: 1px solid #4d23cf;
+    border-right: 1px solid #4d23cf;
+    border-left: 1px solid #ffffff;
+    border-top: 1px solid #ffffff;
+}
+
+#tray {
+    padding: 0 0 8px 3px;
+}
+
+#tray menu {
+    background-color: #f7e1fb;
+    border-radius: 0;
+    border-bottom: 3px solid #815cdd;
+    border-right: 3px solid #815cdd;
+    border-top: 3px solid #ffffff;
+    border-left: 3px solid #ffffff;
+}
+
+#tray menu * {
+    color: #4d23cf;
+    border-radius: 0;
+}

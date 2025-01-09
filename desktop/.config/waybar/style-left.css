@@ -5,20 +5,25 @@
 }
 
 window#waybar {
-    color: #f6f6f9;
-    background-color: rgba(27, 20, 46, 0.8);
+    color: #4d23cf;
+    background-color: #f7e1fb;
+    border-right: 3px solid #4d23cf;
 }
 
 #workspaces {
-    margin: 2px 4px 2px 4px;
-    border-radius: 8px;
+    margin: 2px 7px 2px 4px;
+    color: #4d23cf;
 }
 
 #workspaces button {
     border: none;
-    border-radius: 8px;
-    padding: 11px 1px 10px 1px;
-    color: #f6f6f9;
+    padding: 10px 1px 9px 1px;
+    color: #4d23cf;
+    border-top: 3px solid rgba(0, 0, 0, 0);
+    border-left: 3px solid rgba(0, 0, 0, 0);
+    border-bottom: 3px solid rgba(0, 0, 0, 0);
+    border-right: 3px solid rgba(0, 0, 0, 0);
+    border-radius: 0;
 }
 
 #workspaces button:hover {
@@ -28,83 +33,45 @@ window#waybar {
 }
 
 #workspaces button.active {
-    background-color: #d164f3;
-    color: #1b142e;
+    color: #4d23cf;
+    border-bottom: 3px solid #815cdd;
+    border-right: 3px solid #815cdd;
+    border-top: 3px solid #ffffff;
+    border-left: 3px solid #ffffff;
 }
 
 #workspaces button.urgent {
     color: #d164f3;
 }
 
-#custom-osk, #custom-launcher {
-    border: none;
-    border-radius: 8px;
-    padding: 8px 9px 8px 2px;
-    margin: 2px 4px 2px 4px;
-    font-size: 24px;
-    color: #1b142e;
-}
-
 #custom-launcher {
-    background-color: #d164f3;
-    padding: 3px 8px 3px 0px;
-    margin: 4px 4px 2px 4px;
-    font-size: 32px;
-}
-
-#custom-osk, #custom-addworkspace, #custom-killactive, #custom-terminal, #custom-screenshot {
     border: none;
-    border-radius: 8px;
-    margin: 2px 4px;
-    font-size: 24px;
-    color: #f6f6f9;
+    background-color: #f7e1fb;
+    padding: 2px 8px 2px 0px;
+    margin: 4px 7px 2px 4px;
+    font-size: 32px;
+    border-bottom: 3px solid #815cdd;
+    border-right: 3px solid #815cdd;
+    border-top: 3px solid #ffffff;
+    border-left: 3px solid #ffffff;
+    color: #4d23cf;
 }
 
-#custom-osk {
-    padding: 8px 5px 8px 0px;
-}
-
-#custom-osk.enabled {
-    background-color: #52e6ff;
-    color: #1b142e;
+#custom-separator {
+    font-size: 0;
+    padding: 0.5px;
+    background-color: #f7e1fb;
+    margin: 4px 11px 4px 8px;
+    border-bottom: 1px solid #4d23cf;
+    border-right: 1px solid #4d23cf;
+    border-left: 1px solid #ffffff;
+    border-top: 1px solid #ffffff;
 }
 
 #custom-addworkspace {
-    padding: 8px 4px 8px 0px;
-}
-
-#custom-killactive {
-    padding: 8px 2px 8px 0px;
-}
-
-#custom-terminal {
-    padding: 8px 4px 8px 0px;
-}
-
-#custom-screenshot {
-    padding: 8px 8px 8px 0px;
-}
-
-#battery {
-    color: #1b142e;
-    margin: 0 4px 4px 4px;
-    background-color: #52e6ff;
-    border-radius: 0 0 8px 8px;
+    border: none;
+    margin: 2px 7px 2px 4px;
     font-size: 24px;
-    padding: 0 0 8px 0;
-}
-
-#network {
-    padding: 2px 8px 0 0;
-    color: #1b142e;
-    background-color: #52e6ff;
-    margin: 0 4px 0 4px;
-}
-
-#clock {
-    padding: 8px 0 8px 0;
-    color: #1b142e;
-    background-color: #52e6ff;
-    margin: 2px 4px 0 4px;
-    border-radius: 8px 8px 0 0;
+    color: #4d23cf;
+    padding: 8px 4px 8px 0px;
 }

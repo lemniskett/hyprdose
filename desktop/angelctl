@@ -90,9 +90,9 @@ new_workspace() {
 }
 
 launcher() {
-    nwg-drawer -nocats -close -c 5 -wm hyprland \
+    nwg-drawer -nocats -close -c 6 -wm hyprland \
         -pbexit "hyprctl dispatch exit" -pbreboot "systemctl reboot" \
-        -pbpoweroff "systemctl poweroff" -pbuseicontheme
+        -pbpoweroff "systemctl poweroff" -pbuseicontheme -spacing 0 -is 52
 }
 
 keyboard() {
@@ -101,9 +101,9 @@ keyboard() {
     if [[ "$wvkbd_pids" == "" ]]; then
         wvkbd-mobintl -L "$HYPRDOSE_KEYBOARD_HEIGHT" \
             -l simple,special  --landscape-layers simple,special \
-            -R 12 --bg 1b142ec0 --fg 1b142ec0 --fg-sp 1b142ec0 \
-            --press 52e6ff --press-sp d164f3 \
-            --text f6f6f9 --text-sp f6f6f9 \
+            -R 0 --bg f7e1fb --fg f7e1fb --fg-sp f7e1fb \
+            --press ffffff --press-sp ffffff \
+            --text 4d23cf --text-sp 4d23cf \
             --fn "ZedMono Nerd Font 20" &
     else
         # shellcheck disable=SC2086

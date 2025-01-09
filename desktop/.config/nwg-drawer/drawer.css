@@ -1,29 +1,48 @@
 * {
-    font-family: "ZedMono Nerd Font"
+    font-family: "ZedMono Nerd Font";
 }
 
 window {
-    background-color: rgba(27, 20, 46, 0.8);
-    color: #f6f6f9;
+    /* background-color: #f7e1fb; */
+    background-color: rgba(77, 35, 207, 0.66);
+    /* color: #4d23cf; */
 }
 
 /* search entry */
 entry {
-    margin: 8px 0;
-    background-color: rgba(27, 20, 46, 1);
-    border-radius: 12px;
-    border: 4px solid #52e6ff;
+    margin: 8px 0 0 0;
+    background-color: #f7e1fb;
+    border-radius: 0px;
+    border-top: 4px solid #4d23cf;
+    border-left: 4px solid #4d23cf;
+    border-right: 4px solid #ffffff;
+    border-bottom: 4px solid #ffffff;
+    color: #4d23cf;
 }
 
 button, image {
     background: none;
-    border: none;
-    border-radius: 12px;
+    border-radius: 0px;
     outline: none;
+    color: #4d23cf;
 }
 
 button:hover, button:focus {
-    background-color: #d164f3;
+    background-color: #d3c0d6;
+    /*border: 4px solid rgba(0, 0, 0, 0);*/
+    border-top: 4px solid #5e3fd1;
+    border-left: 4px solid #5e3fd1;
+    border-right: 4px solid #f7e1fb;
+    border-bottom: 4px solid #f7e1fb;
+}
+
+button {
+    background-color: #f7e1fb;
+    border-bottom: 4px solid #4d23cf;
+    border-right: 4px solid #4d23cf;
+    border-left: 4px solid #ffffff;
+    border-top: 4px solid #ffffff;
+    margin: 2px;
 }
 
 /* in case you wanted to give category buttons a different look */
