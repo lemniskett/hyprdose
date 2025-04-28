@@ -90,9 +90,16 @@ new_workspace() {
 }
 
 launcher() {
-    nwg-drawer -nocats -close -c 6 -wm hyprland \
-        -pbexit "hyprctl dispatch exit" -pbreboot "systemctl reboot" \
-        -pbpoweroff "systemctl poweroff" -pbuseicontheme -spacing 0 -is 52
+    if pidof sherlock; then
+	sherlock
+    else
+	sherlock --daemonize &
+	sleep 1
+	sherlock
+    fi
+    #nwg-drawer -nocats -close -c 4 -wm hyprland \
+    #    -pbexit "uwsm stop" -pbreboot "systemctl reboot" \
+    #    -pbpoweroff "systemctl poweroff" -pbuseicontheme -spacing 0 -is 52
 }
 
 keyboard() {
@@ -151,13 +158,26 @@ movetoworkspace() {
     esac
 }
 
+logout() {
+    pkill steam
+    while pidof steam; do
+        sleep 1
+    done
+    #pkill dbus-daemon
+    #while pidof dbus-daemon; do
+    #    sleep 1
+    #done
+    sleep 1
+    hyprctl dispatch exit
+}
+
 case $1 in
-    audio|brightness|screenshot|launcher|new_workspace|keyboard|workspace|movetoworkspace)
+    audio|brightness|screenshot|launcher|new_workspace|keyboard|workspace|movetoworkspace|logout)
     # shellcheck disable=SC2068
     "$1" ${@:2}
     ;;
     *)
-    yap "$0: audio|brightness|launcher|screenshot|new_workspace|keyboard|workspace|movetoworkspace"
+    yap "$0: audio|brightness|launcher|screenshot|new_workspace|keyboard|workspace|movetoworkspace|logout"
     exit 1
     ;;
 esac

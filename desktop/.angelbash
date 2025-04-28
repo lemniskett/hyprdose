@@ -15,18 +15,10 @@ angelfetch() {
 
 source /etc/os-release
 
-if [[ "$(tty)" == "/dev/tty5" ]]; then
-    while true; do
-        Hyprland &> ~/.hyprland.log
-    done
-fi
-
 alias de="distrobox enter"
 alias ssh="env TERM=xterm-256color ssh "
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
 eval "$(starship init bash)"
-if [[ "$ID" == "bazzite" ]]; then
-    angelfetch
-fi
+angelfetch

@@ -12,7 +12,7 @@ w() {
 
 hyprpaper &
 swaync &
-/usr/libexec/hyprpolkitagent &
+systemctl start --user plasma-polkit-agent
 
 w button-layout "$HYPRDOSE_WM_BUTTON_LAYOUT"
 i cursor-theme "$HYPRDOSE_CURSOR_THEME"
@@ -24,8 +24,13 @@ i icon-theme "$HYPRDOSE_ICON_THEME"
 i monospace-font-name "$HYPRDOSE_MONOSPACE_FONT_NAME"
 i color-scheme "$HYPRDOSE_COLOR_SCHEME"
 
+LD_PRELOAD="$HOME/Git/extest/target/i686-unknown-linux-gnu/release/libextest.so" steam -silent &
 sleep 2
 waybar --config ./.config/waybar/config-left.json --style ./.config/waybar/style-left.css &
 waybar --config ./.config/waybar/config-right.json --style ./.config/waybar/style-right.css &
-~/.config/hyprdose/svc/swayidle.sh &
+# ~/.config/hyprdose/svc/swayidle.sh &
 ~/.config/hyprdose/svc/wob.sh &
+sherlock --daemonize &
+sleep 3
+discord --start-minimized &
+slack -u &

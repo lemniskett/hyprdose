@@ -1,3 +1,4 @@
 :root {
     --accent-bg-color: #d164f3;
 }
+@import 'colors.css';
